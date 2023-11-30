@@ -1,0 +1,22 @@
+{
+  "name": "inet",
+  "version": "1.0.0",
+  "description": "inet web-service",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "yarn install && nodemon -w ./src -x \"node --env-file=.env src/index.js\"",
+    "devDragonZypher": "nodemon -w src",
+    "start": "node src/index.js",
+    "nversion": "node --version"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "latest": "^0.2.0",
+    "mysql2": "^3.6.1",
+    "nodemon": "^3.0.1",
+    "wait-port": "^1.1.0"
+  }
+}
