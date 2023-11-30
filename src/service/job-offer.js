@@ -1,4 +1,5 @@
 import { getConnection } from '../lib/connection.js';
+import { randomUUID } from 'crypto';
 
 const entityTable = 'job_offers';
 const idColumn = 'id'
@@ -6,11 +7,12 @@ const idColumn = 'id'
 const post = (data) =>
   new Promise(async (resolve) => {
     const connection = await getConnection();
+    let id = randomUUID();
     connection.query(
       `insert into ?? (id, title, mode_of_work, comunication_preferences, vacancy, is_time_limit, is_cv_required, description, state, salary) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
       [
         entityTable,
-        data.id,
+        id,
         data.title,
         data.mode_of_work,
         data.comunication_preferences,
@@ -23,7 +25,8 @@ const post = (data) =>
       ],
       (err, result) => {
         if (err) throw err;
-        resolve(result[0] ?? null);
+        resolve(getById(id))
+        // resolve(result[0] ?? null);
       }
     );
   });
