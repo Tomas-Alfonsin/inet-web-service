@@ -7,7 +7,7 @@ const {
     DB_PORT = '3306',
     DB_USER = 'dragonzypher',
     DB_PASS = '',
-    DB = 'business',
+    DB = 'inet',
 } = process.env
 
 const connection = new Promise((resolve) => {

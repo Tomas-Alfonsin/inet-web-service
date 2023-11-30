@@ -6,8 +6,8 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "yarn install && nodemon -w ./src -x \"node --env-file=.env src/index.js\"",
-    "devDragonZypher": "nodemon -w src",
-    "start": "node src/index.js",
+    "devDragonZypher": "nodemon -w -x 'node --env-file=.env'",
+    "start": "node --env-file=.env src/index.js",
     "nversion": "node --version"
   },
   "author": "",
